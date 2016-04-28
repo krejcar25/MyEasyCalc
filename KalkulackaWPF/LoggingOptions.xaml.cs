@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using KalkulackaWPF.Properties;
+using System.Diagnostics;
 
 namespace KalkulackaWPF
 {
@@ -68,6 +58,7 @@ namespace KalkulackaWPF
                 Settings.Default.logging = true;
                 loggingToggled = true;
             }
+
             Recolor();
         }
         private void loggingBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -85,6 +76,19 @@ namespace KalkulackaWPF
         {
             var info = new ProgHelp();
             info.Show();
+        }
+        private void visitLogs_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("explorer.exe", Settings.Default.loggingFile);
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.FolderBrowserDialog browser = new System.Windows.Forms.FolderBrowserDialog();
+            browser.Description = "Please select folder for the log files to be save to...";
+            browser.SelectedPath = loggingPath.Text;
+            browser.ShowDialog();
+            loggingPath.Text = browser.SelectedPath;
         }
     }
 }
