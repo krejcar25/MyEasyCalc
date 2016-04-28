@@ -1,0 +1,87 @@
+﻿<Page x:Class="KalkulackaWPF.CalcWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KalkulackaWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="540" d:DesignWidth="384"
+      Title="Calculator"
+      ShowsNavigationUI="False">
+
+    <Grid x:Name="MainGrid">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="83*"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="10" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="number1" Content="1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Width="67" Click="number1_Click"/>
+                <Button x:Name="number2" Content="2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Width="67" Click="number2_Click"/>
+                <Button x:Name="number3" Content="3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Width="67" Click="number3_Click"/>
+                <Button x:Name="number4" Content="4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Width="67" Click="number4_Click"/>
+                <Button x:Name="number5" Content="5" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="67" Click="number5_Click"/>
+                <Button x:Name="number6" Content="6" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Width="67" Click="number6_Click"/>
+                <Button x:Name="number7" Content="7" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Width="67" Click="number7_Click"/>
+                <Button x:Name="number8" Content="8" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Width="67" Click="number8_Click"/>
+                <Button x:Name="number9" Content="9" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Width="67" Click="number9_Click"/>
+                <Button x:Name="number0" Content="0" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Width="67" Click="number0_Click"/>
+                <Button x:Name="plus" Content="+" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Left" Width="67" Click="plus_Click"/>
+                <Button x:Name="minus" Content="-" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Left" Width="67" Height="53" VerticalAlignment="Top" Click="minus_Click"/>
+                <Button x:Name="times" Content="×" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" Width="67" Click="times_Click"/>
+                <Button x:Name="divide" Content="÷" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Left" Width="67" Height="54" VerticalAlignment="Bottom" Click="divide_Click"/>
+                <Button x:Name="equal" Content="=" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Left" Width="67" Click="equal_Click"/>
+                <Button x:Name="bracketOpen" Content="(" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Width="67" Click="bracketOpen_Click"/>
+                <Button x:Name="bracketClose" Content=")" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Width="67" Click="bracketClose_Click"/>
+                <Button x:Name="decButton" Content="." Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Width="67" Click="decButton_Click"/>
+                <Button x:Name="exponential" Content="×10^n" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" Width="67" Click="exponential_Click"/>
+                <Button x:Name="ans" Content="Ans" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Left" Width="67" Click="ans_Click"/>
+                <Button x:Name="del" Content="DEL" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" Width="67" Click="del_Click"/>
+                <Button x:Name="ac" Content="AC" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Left" Width="67" Click="ac_Click"/>
+                <Button x:Name="power2" Content="^2" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" Width="67" Click="power2_Click"/>
+                <Button x:Name="power3" Content="^3" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Left" Width="67" Click="power3_Click"/>
+                <Button x:Name="powerN" Content="^n" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Left" Width="67" Click="powerN_Click"/>
+                <Button x:Name="root2" Content="2nd root" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" Width="67" Click="root2_Click"/>
+                <Button x:Name="root3" Content="3rd root" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Left" Width="67" Click="root3_Click"/>
+                <Button x:Name="rootN" Content="nth root" Grid.Column="4" Grid.Row="5" HorizontalAlignment="Left" Width="67" Click="rootN_Click"/>
+                <Button x:Name="sin" Content="sin(x)" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" Width="67" Click="sin_Click"/>
+                <Button x:Name="cos" Content="cos(x)" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Width="67" Click="cos_Click"/>
+                <Button x:Name="tan" Content="tan(x)" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" Width="67" Click="tan_Click"/>
+                <Button x:Name="log" Content="log(x)" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" Width="67" Click="log_Click"/>
+                <Button x:Name="logn" Content="log(x, a)" Grid.Column="3" Grid.Row="6" HorizontalAlignment="Left" Width="67" Click="logn_Click"/>
+                <Button x:Name="ln" Content="ln(x)" Grid.Column="4" Grid.Row="6" HorizontalAlignment="Left" Width="67" Click="ln_Click"/>
+                <Button x:Name="powerE" Content="e^x" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Width="67" Click="powerE_Click"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="95" VerticalAlignment="Top" Width="356">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="70*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="85*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="directPad" Grid.Column="1" Margin="10" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Right" FontSize="33.333"/>
+                <TextBlock x:Name="indirectPad" Grid.Column="1" TextWrapping="Wrap" Margin="10,10,0,0"/>
+                <Button x:Name="historyOpen" Content="History" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="53" Height="66"/>
+                <Button x:Name="optionsOpen" Content="Options" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="29" Click="optionsOpen_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

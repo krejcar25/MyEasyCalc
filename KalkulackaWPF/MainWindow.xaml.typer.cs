@@ -14,7 +14,7 @@ namespace KalkulackaWPF
                 case Key.Cancel:
                     break;
                 case Key.Back:
-                    updateDisplay("del");
+                    First.Calc.updateDisplay("del");
                     break;
                 case Key.Tab:
                     break;
@@ -23,15 +23,15 @@ namespace KalkulackaWPF
                 case Key.Clear:
                     break;
                 case Key.Enter:
-                    updateDisplay("moveUp", "equal");
-                    processor.Process();
+                    First.Calc.updateDisplay("moveUp", "equal");
+                    First.processor.Process();
                     break;
                 case Key.Pause:
                     break;
                 case Key.CapsLock:
                     break;
                 case Key.Escape:
-                    updateDisplay("clear");
+                    First.Calc.updateDisplay("clear");
                     break;
                 case Key.Space:
                     break;
@@ -66,34 +66,34 @@ namespace KalkulackaWPF
                 case Key.Help:
                     break;
                 case Key.D0:
-                    updateDisplay("write", "0");
+                    First.Calc.updateDisplay("write", "0");
                     break;
                 case Key.D1:
-                    updateDisplay("write", "1");
+                    First.Calc.updateDisplay("write", "1");
                     break;
                 case Key.D2:
-                    updateDisplay("write", "2");
+                    First.Calc.updateDisplay("write", "2");
                     break;
                 case Key.D3:
-                    updateDisplay("write", "3");
+                    First.Calc.updateDisplay("write", "3");
                     break;
                 case Key.D4:
-                    updateDisplay("write", "4");
+                    First.Calc.updateDisplay("write", "4");
                     break;
                 case Key.D5:
-                    updateDisplay("write", "5");
+                    First.Calc.updateDisplay("write", "5");
                     break;
                 case Key.D6:
-                    updateDisplay("write", "6");
+                    First.Calc.updateDisplay("write", "6");
                     break;
                 case Key.D7:
-                    updateDisplay("write", "7");
+                    First.Calc.updateDisplay("write", "7");
                     break;
                 case Key.D8:
-                    updateDisplay("write", "8");
+                    First.Calc.updateDisplay("write", "8");
                     break;
                 case Key.D9:
-                    updateDisplay("write", "9");
+                    First.Calc.updateDisplay("write", "9");
                     break;
                 case Key.A:
                     break;
@@ -156,57 +156,57 @@ namespace KalkulackaWPF
                 case Key.Sleep:
                     break;
                 case Key.NumPad0:
-                    updateDisplay("write", "0");
+                    First.Calc.updateDisplay("write", "0");
                     break;
                 case Key.NumPad1:
-                    updateDisplay("write", "1");
+                    First.Calc.updateDisplay("write", "1");
                     break;
                 case Key.NumPad2:
-                    updateDisplay("write", "2");
+                    First.Calc.updateDisplay("write", "2");
                     break;
                 case Key.NumPad3:
-                    updateDisplay("write", "3");
+                    First.Calc.updateDisplay("write", "3");
                     break;
                 case Key.NumPad4:
-                    updateDisplay("write", "4");
+                    First.Calc.updateDisplay("write", "4");
                     break;
                 case Key.NumPad5:
-                    updateDisplay("write", "5");
+                    First.Calc.updateDisplay("write", "5");
                     break;
                 case Key.NumPad6:
-                    updateDisplay("write", "6");
+                    First.Calc.updateDisplay("write", "6");
                     break;
                 case Key.NumPad7:
-                    updateDisplay("write", "7");
+                    First.Calc.updateDisplay("write", "7");
                     break;
                 case Key.NumPad8:
-                    updateDisplay("write", "8");
+                    First.Calc.updateDisplay("write", "8");
                     break;
                 case Key.NumPad9:
-                    updateDisplay("write", "9");
+                    First.Calc.updateDisplay("write", "9");
                     break;
                 case Key.Multiply:
-                    updateDisplay("moveUp", "times");
+                    First.Calc.updateDisplay("moveUp", "times");
                     break;
                 case Key.Add:
-                    updateDisplay("moveUp", "plus");
+                    First.Calc.updateDisplay("moveUp", "plus");
                     break;
                 case Key.Separator:
                     break;
                 case Key.Subtract:
-                    updateDisplay("moveUp", "minus");
+                    First.Calc.updateDisplay("moveUp", "minus");
                     break;
                 case Key.Decimal:
-                    updateDisplay("write", ".");
+                    First.Calc.updateDisplay("write", ".");
                     break;
                 case Key.OemPeriod:
-                    updateDisplay("write", ".");
+                    First.Calc.updateDisplay("write", ".");
                     break;
                 case Key.OemComma:
-                    updateDisplay("write", ",");
+                    First.Calc.updateDisplay("write", ",");
                     break;
                 case Key.Divide:
-                    updateDisplay("moveUp", "divide");
+                    First.Calc.updateDisplay("moveUp", "divide");
                     break;
                 case Key.F1:
                     break;

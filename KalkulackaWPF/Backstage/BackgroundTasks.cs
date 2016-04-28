@@ -25,11 +25,11 @@
                 dec = false;
             }
             if (dec) {
-                First.main.decButton.IsEnabled = false;
+                First.Calc.decButton.IsEnabled = false;
             }
             else if (!dec)
             {
-                First.main.decButton.IsEnabled = true;
+                First.Calc.IsEnabled = true;
             }
         }
     }

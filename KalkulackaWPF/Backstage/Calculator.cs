@@ -7,13 +7,15 @@ namespace KalkulackaWPF
     public class Calculator
     {
         public string mathString { get; set; }
+        public bool isResult { get; set; }
+        public int lastResult { get; set; }
         public Calculator()
         {
             //math = First.main.indirectPad.Text;
         }
         public void Process()
         {
-            mathString = First.main.indirectPad.Text;
+            mathString = First.Calc.indirectPad.Text;
             FuncParser();
             Console.WriteLine("Math: {0}", mathString);
             //MSScriptControl.ScriptControl sc = new MSScriptControl.ScriptControl();
@@ -23,18 +25,17 @@ namespace KalkulackaWPF
             //object result = sc.Eval(expression);
             Mono.CSharp.Evaluator evaluator = new Evaluator(new CompilerContext(new CompilerSettings(), new ConsoleReportPrinter()));
             object result = evaluator.Evaluate(expression);
-            First.main.directPad.Text = result.ToString();
-            First.main.isResult = true;
+            First.Calc.directPad.Text = result.ToString();
+            isResult = true;
         }
         private void FuncParser()
         {
             mathString = mathString
                 .Replace("sin", "System.Math.Sin").Replace("cos", "System.Math.Cos").Replace("tan", "System.Math.Tan")
                 .Replace("log", "System.Math.Log").Replace("log10", "System.Math.Log10").Replace("ln", "System.Math.Log")
-                .Replace("Ans", First.main.lastResult.ToString());
+                .Replace("Ans", lastResult.ToString());
             mathString = Regex.Replace(mathString, @"\be", "System.Math.E");
             mathString = Regex.Replace(mathString, @"\bE", "*10^");
-            //mathString = Regex.Replace(mathString, "log(\s+(.*?)(?:,)\s+(.*?)(?:))", "(log($1)/log($2)");)
         }
         public string StepSolve()
         {
@@ -42,7 +43,7 @@ namespace KalkulackaWPF
         }
         public void CreateFormula(string name)
         {
-            mathString = First.main.indirectPad.Text;
+            mathString = First.Calc.indirectPad.Text;
             string toAdd;
             switch (name)
             {
@@ -89,7 +90,7 @@ namespace KalkulackaWPF
                     toAdd = "";
                     break;
             }
-            First.main.MainWindow1.updateDisplay("write", toAdd);
+            First.Calc.updateDisplay("write", toAdd);
         }
     }
 }

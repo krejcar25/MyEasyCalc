@@ -117,8 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="old-calculator" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Popups\old-calculator.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="textBoxDescription.Text" xml:space="preserve">
+    <value>Key mapping:
+O ............... Options
+S ................ Square root
+P ................ Power 2
+
+This program was made and published in june as a school project by Michal Krejčí who is the sole owner of the copyright to this software. Any redistribution without written consent of author is strictly prohibited and copyright laws and approporiate charges may be required. You are free to ask for permission. Source code may be published after agreement with Author via email or physical documentation.</value>
   </data>
 </root>

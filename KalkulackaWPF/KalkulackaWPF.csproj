@@ -76,6 +76,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\LoggingOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CalcWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -84,29 +96,36 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BackgroundTasks.cs" />
-    <Compile Include="Calculator.cs" />
+    <Compile Include="Backstage\BackgroundTasks.cs" />
+    <Compile Include="Backstage\Calculator.cs" />
+    <Compile Include="Popups\License.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\License.Designer.cs">
+      <DependentUpon>License.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoggingOptions.xaml.cs">
+      <DependentUpon>LoggingOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CalcWindow.xaml.cs">
+      <DependentUpon>CalcWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="First.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="MainWindow.xaml.buttons.cs" />
+    <Compile Include="Backstage\Logger.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="LoggingOptions.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow.xaml.typer.cs" />
-    <Compile Include="LoggingOptions.xaml.cs">
-      <DependentUpon>LoggingOptions.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ProgHelp.cs">
+    <Compile Include="Popups\ProgHelp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgHelp.Designer.cs">
+    <Compile Include="Popups\ProgHelp.Designer.cs">
       <DependentUpon>ProgHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -122,7 +141,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="ProgHelp.resx">
+    <EmbeddedResource Include="Popups\License.resx">
+      <DependentUpon>License.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\ProgHelp.resx">
       <DependentUpon>ProgHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -164,6 +186,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Popups\old-calculator.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

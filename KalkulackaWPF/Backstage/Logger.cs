@@ -1,5 +1,8 @@
-﻿using System;
+﻿using KalkulackaWPF.Properties;
+using System;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Security;
 
 namespace KalkulackaWPF
 {
@@ -85,5 +88,70 @@ namespace KalkulackaWPF
                 fileLogged = false;
             }
         }
+        public Logger(bool license)
+        {
+            if (license)
+            {
+                ConsoleHelper.Create();
+                Console.Clear();
+                if (!Settings.Default.license)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("By using this product you agree to the License Agreement accompanied with this product, that is available through options menu. By continuing you agree that you have read and understand the License Agreement. If you disagree with the License Agreement please quit this software immediately and contact Author");
+                    Console.WriteLine("Hit Enter key now to accept the license and start the program or anything else to quit: ");
+                    if (Console.ReadKey().Key.ToString() == "Enter")
+                    {
+                        Settings.Default.license = true;
+                        Settings.Default.Save();
+                        Console.WriteLine("License Accepted!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("License Rejected, quitting");
+                        System.Windows.Application.Current.Shutdown();
+                    }
+                }
+                ConsoleHelper.Destroy();
+            }
+            else
+            {
+                if (Settings.Default.logging)
+                {
+                    ConsoleHelper.Create();
+                    new Logger(2, "Logging", "Logging code initialized and working");
+                    new Logger(2, "System", "System started, app window should open wihin 3 seconds");
+                }
+            }
+        }
+    }
+    public class ConsoleHelper
+    {
+        public static int Create()
+        {
+            if (AllocConsole())
+                return 0;
+            else
+                return Marshal.GetLastWin32Error();
+        }
+
+        public static int Destroy()
+        {
+            if (FreeConsole())
+                return 0;
+            else
+                return Marshal.GetLastWin32Error();
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2118:ReviewSuppressUnmanagedCodeSecurityUsage"), SuppressUnmanagedCodeSecurity]
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
+
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2118:ReviewSuppressUnmanagedCodeSecurityUsage"), SuppressUnmanagedCodeSecurity]
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool FreeConsole();
     }
 }

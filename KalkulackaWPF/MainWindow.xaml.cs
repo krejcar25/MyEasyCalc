@@ -10,10 +10,6 @@ namespace KalkulackaWPF
     {
         // public static bool isResult = false;
         // public static int lastResult = 0;
-        public bool isResult { get; set; }
-        public int lastResult { get; set; }
-        public static BackgroundTasks tasks = new BackgroundTasks();
-        public static Calculator processor = new Calculator();
         public MainWindow()
         {
             InitializeComponent();
@@ -21,7 +17,12 @@ namespace KalkulackaWPF
 
         public void Clear()
         {
-            directPad.Text = "";
+            First.Calc.directPad.Text = "";
+        }
+        public void SetPage(int id)
+        {
+            object[] list = new object[] { First.Calc, First.Options, First.LoggingOptions };
+            Viewer.Content = list[id];
         }
     }
 }
