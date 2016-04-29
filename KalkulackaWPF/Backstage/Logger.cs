@@ -1,4 +1,4 @@
-﻿using KalkulackaWPF.Properties;
+﻿using KalkulackaWPF.Objects;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -10,9 +10,10 @@ namespace KalkulackaWPF
     {
         public bool consoleLogged { get; set; }
         public bool fileLogged { get; set; }
+        public bool licenseDisplayed { get; set; } = false;
         public Logger(int level, string attr, string value)
         {
-            if (ProgHelp.consoleActive)
+            if (config.Default.console)
             {
                 if (level == 0) //FATAL
                 {
@@ -33,7 +34,7 @@ namespace KalkulackaWPF
                 }
                 else if (level == 2) // INFO
                 {
-                    Console.Write("[{0}][", string.Format("{0}, {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString()));
+                    Console.Write("[{0}, {1}][", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write("INFO");
                     Console.ResetColor();
@@ -46,21 +47,14 @@ namespace KalkulackaWPF
                     Console.WriteLine("EVENT][{0}] > {1}", attr, value);
                 }
                 consoleLogged = true;
-                int line = Console.CursorTop;
-                Console.SetCursorPosition(0, 0);
-                Console.BackgroundColor = ConsoleColor.Blue;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("Program logging Console");
-                Console.ResetColor();
-                Console.SetCursorPosition(0, line);
             }
             else
             {
                 consoleLogged = false;
             }
-            if (Properties.Settings.Default.logging)
+            if (config.Default.logging)
             {
-                string path = First.logPath;
+                string path = Vars.LogPath;
                 Directory.CreateDirectory(Path.GetDirectoryName(path));
                 TextWriter write = new StreamWriter(path, true);
 
@@ -92,9 +86,13 @@ namespace KalkulackaWPF
         {
             if (license)
             {
-                ConsoleHelper.Create();
+                if (!Vars.consoleOpen)
+                {
+                    ConsoleHelper.Create();
+                    Vars.consoleOpen = true;
+                }
                 Console.Clear();
-                if (!Settings.Default.license)
+                if (!config.Default.license)
                 {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.White;
@@ -102,8 +100,8 @@ namespace KalkulackaWPF
                     Console.WriteLine("Hit Enter key now to accept the license and start the program or anything else to quit: ");
                     if (Console.ReadKey().Key.ToString() == "Enter")
                     {
-                        Settings.Default.license = true;
-                        Settings.Default.Save();
+                        config.Default.license = true;
+                        config.Default.Save();
                         Console.WriteLine("License Accepted!");
                     }
                     else
@@ -112,15 +110,14 @@ namespace KalkulackaWPF
                         System.Windows.Application.Current.Shutdown();
                     }
                 }
-                ConsoleHelper.Destroy();
+                if (!config.Default.console) ConsoleHelper.Destroy();
             }
             else
             {
-                if (Settings.Default.logging)
+                if (config.Default.console)
                 {
                     ConsoleHelper.Create();
-                    new Logger(2, "Logging", "Logging code initialized and working");
-                    new Logger(2, "System", "System started, app window should open wihin 3 seconds");
+                    Vars.consoleOpen = true;
                 }
             }
         }

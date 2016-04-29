@@ -1,4 +1,6 @@
-﻿namespace KalkulackaWPF
+﻿using KalkulackaWPF.Views;
+
+namespace KalkulackaWPF
 {
     public class BackgroundTasks
     {
@@ -25,11 +27,11 @@
                 dec = false;
             }
             if (dec) {
-                First.Calc.decButton.IsEnabled = false;
+                View.Calc.decButton.IsEnabled = false;
             }
             else if (!dec)
             {
-                First.Calc.IsEnabled = true;
+                View.Calc.IsEnabled = true;
             }
         }
     }

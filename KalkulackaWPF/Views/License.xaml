@@ -1,0 +1,21 @@
+﻿<Page x:Class="KalkulackaWPF.Views.License"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KalkulackaWPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="540" d:DesignWidth="384"
+      Title="License">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="header" Margin="10" TextWrapping="Wrap" FontSize="22" TextAlignment="Center"><Run FontWeight="Bold" Text="License"/></TextBlock>
+        <Button x:Name="back" Content="Return" Margin="10" Grid.Row="2" Click="back_Click"/>
+        <WebBrowser x:Name="viewer" Margin="10" Grid.Row="1"/>
+    </Grid>
+</Page>

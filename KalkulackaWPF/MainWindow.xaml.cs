@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using KalkulackaWPF.Objects;
+using KalkulackaWPF.Views;
+using System.Windows;
 
 namespace KalkulackaWPF
 {
@@ -17,12 +19,12 @@ namespace KalkulackaWPF
 
         public void Clear()
         {
-            First.Calc.directPad.Text = "";
+            View.Calc.directPad.Text = "";
         }
-        public void SetPage(int id)
+        public void SetPage(string id)
         {
-            object[] list = new object[] { First.Calc, First.Options, First.LoggingOptions };
-            Viewer.Content = list[id];
+
+            Viewer.Content = Vars.viewsList[id];
         }
     }
 }

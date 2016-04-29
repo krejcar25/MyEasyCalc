@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KalkulackaWPF" GeneratedClassName="config">
+  <Profiles />
+  <Settings>
+    <Setting Name="license" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="console" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="logging" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="loggingPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\Users\\Michal\\AppData\\Roaming\\MyEasyCalc\\log\\</Value>
+    </Setting>
+    <Setting Name="loggingFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">output-{date}-{time}.log</Value>
+    </Setting>
+    <Setting Name="consoleOpen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

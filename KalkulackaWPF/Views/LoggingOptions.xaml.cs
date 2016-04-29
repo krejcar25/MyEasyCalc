@@ -1,6 +1,7 @@
-﻿using KalkulackaWPF.Properties;
+﻿using KalkulackaWPF.Objects;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KalkulackaWPF
+namespace KalkulackaWPF.Views
 {
     /// <summary>
     /// Interaction logic for LoggingOptions.xaml
@@ -25,6 +26,7 @@ namespace KalkulackaWPF
         public LoggingOptions()
         {
             InitializeComponent();
+            Recolor();
         }
 
         private bool loggingToggled { get; set; }
@@ -32,25 +34,26 @@ namespace KalkulackaWPF
 
         private void Recolor()
         {
-            if (!Settings.Default.logging)
+            if (!config.Default.logging)
             {
                 toggleLogging.Background = Brushes.Crimson;
                 toggleLogging.Content = "Turn on\r\n(currently off)";
             }
-            else if (Settings.Default.logging)
+            else if (config.Default.logging)
             {
                 toggleLogging.Background = Brushes.Olive;
                 toggleLogging.Content = "Turn off\r\n(currently on)";
             }
 
-            loggingPath.Text = Settings.Default.loggingFile;
+            loggingPath.Text = config.Default.loggingPath;
+            loggingFile.Text = config.Default.loggingFile;
 
-            if (!Settings.Default.consoleOpen)
+            if (!config.Default.console)
             {
                 toggleConsole.Background = Brushes.Crimson;
                 toggleConsole.Content = "Turn on\r\n(currently off)";
             }
-            else if (Settings.Default.logging)
+            else if (config.Default.console)
             {
                 toggleConsole.Background = Brushes.Olive;
                 toggleConsole.Content = "Turn off\r\n(currently on)";
@@ -59,28 +62,23 @@ namespace KalkulackaWPF
 
         private void toggleLogging_Click(object sender, RoutedEventArgs e)
         {
-            if (Settings.Default.logging)
+            if (config.Default.logging)
             {
-                Settings.Default.logging = false;
-                loggingToggled = true;
+                config.Default.logging = false;
+                config.Default.Save();
             }
             else
             {
-                Settings.Default.logging = true;
-                loggingToggled = true;
+                config.Default.logging = true;
+                config.Default.Save();
             }
 
             Recolor();
         }
-        private void loggingBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Settings.Default.loggingFile = loggingPath.Text;
-            loggingToggled = true;
-        }
 
         private void visitLogs_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("explorer.exe", Settings.Default.loggingFile);
+            Process.Start("explorer.exe", config.Default.loggingPath+config.Default.loggingFile);
         }
 
         private void pathSelect_Click(object sender, RoutedEventArgs e)
@@ -94,34 +92,31 @@ namespace KalkulackaWPF
 
         private void toggleConsole_Click(object sender, RoutedEventArgs e)
         {
-            if (Settings.Default.logging)
+            if (config.Default.console)
             {
-                Settings.Default.logging = false;
-                loggingToggled = true;
+                config.Default.console = false;
+                config.Default.Save();
             }
             else
             {
-                Settings.Default.logging = true;
-                loggingToggled = true;
+                config.Default.console = true;
+                config.Default.Save();
             }
 
             Recolor();
         }
 
-        private void showEula_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void showAbout_Click(object sender, RoutedEventArgs e)
-        {
-            ProgHelp help = new ProgHelp();
-            help.ShowDialog();
-        }
-
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            First.main.SetPage(1);
+            Worker.main.SetPage("Options");
+            config.Default.loggingPath = this.loggingPath.Text;
+            config.Default.loggingFile = this.loggingFile.Text;
+            config.Default.Save();
+        }
+
+        private void fileNameInfo_Click(object sender, RoutedEventArgs e)
+        {
+            Worker.main.SetPage("FileNameInfo");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KalkulackaWPF.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KalkulackaWPF
+namespace KalkulackaWPF.Views
 {
     /// <summary>
     /// Interaction logic for CalcWindow.xaml
@@ -36,8 +37,8 @@ namespace KalkulackaWPF
                 directPad.Text = "";
                 indirectPad.Text = "";
                 new Logger(2, "Display", "Text pads were cleared");
-                First.processor.isResult = false;
-                First.processor.lastResult = 0;
+                Worker.processor.isResult = false;
+                Worker.processor.lastResult = 0;
                 new Logger(2, "Vars", "Ans values were resetted");
             }
             else if (task == "del")
@@ -60,18 +61,18 @@ namespace KalkulackaWPF
             {
                 if (val == ".")
                 {
-                    if (!tasks.dec && directPad.Text != "" && !First.processor.isResult)
+                    if (!tasks.dec && directPad.Text != "" && !Worker.processor.isResult)
                     {
                         directPad.Text += ".";
                     }
                 }
                 else
                 {
-                    if (First.processor.isResult)
+                    if (Worker.processor.isResult)
                     {
                         directPad.Text = val;
                         indirectPad.Text = "";
-                        First.processor.isResult = false;
+                        Worker.processor.isResult = false;
                     }
                     else
                     {
@@ -104,7 +105,7 @@ namespace KalkulackaWPF
                         break;
                 }
                 indirectPad.Text += directPad.Text + oper;
-                directPad.Text = First.processor.StepSolve();
+                directPad.Text = Worker.processor.StepSolve();
             }
             tasks.CheckBlocksInitiate(directPad.Text, indirectPad.Text);
         }
@@ -179,56 +180,56 @@ namespace KalkulackaWPF
         // func
         private void power2_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("pow2");
+            Worker.processor.CreateFormula("pow2");
         }
         private void power3_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("pow3");
+            Worker.processor.CreateFormula("pow3");
         }
         private void powerN_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("powx");
+            Worker.processor.CreateFormula("powx");
         }
         private void root2_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("root2");
+            Worker.processor.CreateFormula("root2");
         }
         private void root3_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("root3");
+            Worker.processor.CreateFormula("root3");
         }
         private void rootN_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("rootx");
+            Worker.processor.CreateFormula("rootx");
         }
         private void sin_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("sin");
+            Worker.processor.CreateFormula("sin");
         }
         private void cos_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("cos");
+            Worker.processor.CreateFormula("cos");
         }
         private void tan_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("tan");
+            Worker.processor.CreateFormula("tan");
         }
         private void log_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("log10");
+            Worker.processor.CreateFormula("log10");
         }
         private void logn_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("log");
+            Worker.processor.CreateFormula("log");
         }
         private void ln_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("ln");
+            Worker.processor.CreateFormula("ln");
         }
         // parts
         private void powerE_Click(object sender, RoutedEventArgs e)
         {
-            First.processor.CreateFormula("eP");
+            Worker.processor.CreateFormula("eP");
         }
         private void exponential_Click(object sender, RoutedEventArgs e)
         {
@@ -244,10 +245,7 @@ namespace KalkulackaWPF
         }
         private void optionsOpen_Click(object sender, RoutedEventArgs e)
         {
-            /*Window w = new Window();
-            w.Content = new Options();
-            w.Show();*/
-            First.main.SetPage(2);
+            Worker.main.SetPage("Options");
         }
         private void bracketOpen_Click(object sender, RoutedEventArgs e)
         {
@@ -260,7 +258,7 @@ namespace KalkulackaWPF
         private void equal_Click(object sender, RoutedEventArgs e)
         {
             updateDisplay("moveUp", "equal");
-            First.processor.Process();
+            Worker.processor.Process();
         }
     }
 }

@@ -22,53 +22,5 @@ namespace KalkulackaWPF.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool logging {
-            get {
-                return ((bool)(this["logging"]));
-            }
-            set {
-                this["logging"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool license {
-            get {
-                return ((bool)(this["license"]));
-            }
-            set {
-                this["license"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool consoleOpen {
-            get {
-                return ((bool)(this["consoleOpen"]));
-            }
-            set {
-                this["consoleOpen"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\Michal\\\\AppData\\\\Roaming\\\\MyEasyCalc\\\\log\\\\output-{date}-{time}.log")]
-        public string loggingFile {
-            get {
-                return ((string)(this["loggingFile"]));
-            }
-            set {
-                this["loggingFile"] = value;
-            }
-        }
     }
 }

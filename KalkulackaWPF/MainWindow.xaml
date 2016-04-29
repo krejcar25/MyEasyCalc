@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KalkulackaWPF"
         mc:Ignorable="d"
-        Title="Kalkulačka" Height="540" Width="384"
-        KeyDown="typer">
+        Title="Kalkulačka"
+        KeyDown="typer" Height="571" Width="392">
     <Frame x:Name="Viewer" NavigationUIVisibility="Hidden"/>
 </Window>    
