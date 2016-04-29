@@ -1,11 +1,10 @@
-﻿<Window x:Name="MainWindow1" x:Class="KalkulackaWPF.MainWindow"
+﻿<Window x:Name="Window" x:Class="KalkulackaWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KalkulackaWPF"
         mc:Ignorable="d"
-        Title="Kalkulačka"
-        KeyDown="typer" Height="571" Width="392">
+        Title="Kalkulačka" Height="571" Width="392" KeyDown="Window_KeyDown">
     <Frame x:Name="Viewer" NavigationUIVisibility="Hidden"/>
 </Window>    

@@ -115,7 +115,8 @@
     </Compile>
     <Compile Include="Backstage\BackgroundTasks.cs" />
     <Compile Include="Backstage\Calculator.cs" />
-    <Compile Include="Object\Object.cs" />
+    <Compile Include="Backstage\Typer.cs" />
+    <Compile Include="Object\Worker.cs" />
     <Compile Include="Object\Vars.cs" />
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>

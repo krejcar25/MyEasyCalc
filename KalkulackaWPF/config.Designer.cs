@@ -61,7 +61,7 @@ namespace KalkulackaWPF {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\Michal\\\\AppData\\\\Roaming\\\\MyEasyCalc\\\\log\\\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{homeDir}\\AppData\\Roaming\\MyEasyCalc\\log\\")]
         public string loggingPath {
             get {
                 return ((string)(this["loggingPath"]));

@@ -14,7 +14,8 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="header" Margin="10" TextWrapping="Wrap" FontSize="22" TextAlignment="Center"><Run FontWeight="Bold" Text="About"/></TextBlock>
+        <TextBlock x:Name="header" Margin="10" TextWrapping="Wrap" FontSize="22" TextAlignment="Center"><Run FontWeight="Bold" Text="License"/></TextBlock>
         <Button x:Name="back" Content="Return" Margin="10" Grid.Row="2" Click="back_Click"/>
+        <WebBrowser x:Name="viewer" Margin="10" Grid.Row="1"/>
     </Grid>
 </Page>

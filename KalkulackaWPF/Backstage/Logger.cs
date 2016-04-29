@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace KalkulackaWPF
+namespace KalkulackaWPF.Backstage
 {
     class Logger
     {
@@ -103,6 +103,7 @@ namespace KalkulackaWPF
                         config.Default.license = true;
                         config.Default.Save();
                         Console.WriteLine("License Accepted!");
+                        Worker.tasks.InitialiseLogDir();
                     }
                     else
                     {

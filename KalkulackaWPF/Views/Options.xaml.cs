@@ -41,11 +41,13 @@ namespace KalkulackaWPF.Views
         private void showAbout_Click(object sender, RoutedEventArgs e)
         {
             Worker.main.SetPage("About");
+            View.License.viewer.Navigate(new Uri(string.Format("file:///{0}/views/shows/About.html", Directory.GetCurrentDirectory())));
         }
 
         private void logginOptionsOpen_Click(object sender, RoutedEventArgs e)
         {
             Worker.main.SetPage("LoggingOptions");
+            View.LoggingOptions.Recolor();
         }
     }
 }

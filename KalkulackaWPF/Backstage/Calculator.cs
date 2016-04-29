@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using Mono.CSharp;
 using KalkulackaWPF.Views;
 
-namespace KalkulackaWPF
+namespace KalkulackaWPF.Backstage
 {
     public class Calculator
     {

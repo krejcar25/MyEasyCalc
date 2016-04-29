@@ -1,6 +1,8 @@
-﻿using KalkulackaWPF.Views;
+﻿using KalkulackaWPF.Objects;
+using KalkulackaWPF.Views;
+using System;
 
-namespace KalkulackaWPF
+namespace KalkulackaWPF.Backstage
 {
     public class BackgroundTasks
     {
@@ -16,7 +18,7 @@ namespace KalkulackaWPF
                 directPadParam, indirectPadParam));
             CheckBlocks();
         }
-        public void CheckBlocks()
+        private void CheckBlocks()
         {
             if (this.directPad.Contains("."))
             {
@@ -33,6 +35,13 @@ namespace KalkulackaWPF
             {
                 View.Calc.IsEnabled = true;
             }
+        }
+        public void InitialiseLogDir()
+        {
+            string homePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            config.Default.loggingPath = config.Default.loggingPath.Replace("{homeDir}", homePath);
+            config.Default.Save();
+            Vars.LogPath = config.Default.loggingPath + config.Default.loggingFile.Replace("{date}", DateTime.Now.ToShortDateString()).Replace("{time}", DateTime.Now.ToLongTimeString().Replace(":", "."));
         }
     }
 }

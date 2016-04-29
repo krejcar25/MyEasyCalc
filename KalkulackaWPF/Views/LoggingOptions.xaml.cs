@@ -32,7 +32,7 @@ namespace KalkulackaWPF.Views
         private bool loggingToggled { get; set; }
         private bool changed { get; set; }
 
-        private void Recolor()
+        public void Recolor()
         {
             if (!config.Default.logging)
             {
@@ -78,7 +78,7 @@ namespace KalkulackaWPF.Views
 
         private void visitLogs_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("explorer.exe", config.Default.loggingPath+config.Default.loggingFile);
+            Process.Start("explorer.exe", config.Default.loggingPath);
         }
 
         private void pathSelect_Click(object sender, RoutedEventArgs e)
