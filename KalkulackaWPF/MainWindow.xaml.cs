@@ -24,7 +24,7 @@ namespace KalkulackaWPF
         }
         public void SetPage(string id)
         {
-            new Logger(2, "Display", string.Format("Setting page to {0}", id));
+            Worker.Logger.log(2, "Display", string.Format("Setting page to {0}", id));
             Viewer.Content = Vars.viewsList[id];
         }
 

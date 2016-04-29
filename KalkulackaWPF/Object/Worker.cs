@@ -13,5 +13,6 @@ namespace KalkulackaWPF.Objects
         public static Calculator processor = new Calculator();
         public static BackgroundTasks tasks = new BackgroundTasks();
         public static Typer Typer = new Typer();
+        public static Logger Logger = new Logger();
     }
 }

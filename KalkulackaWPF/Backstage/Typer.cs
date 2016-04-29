@@ -13,7 +13,7 @@ namespace KalkulackaWPF.Backstage
     {
         public void typer(object sender, KeyEventArgs e)
         {
-            new Logger(3, "Keypress", string.Format("A key was pressed: {0}", e.Key));
+            Worker.Logger.log(3, "Keypress", string.Format("A key was pressed: {0}", e.Key));
             switch (e.Key)
             {
                 case Key.None:

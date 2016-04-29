@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KalkulackaWPF.Views
 {
-    class View
+    public class View
     {
         public static CalcWindow Calc = new CalcWindow();
         public static Options Options = new Options();
@@ -15,5 +15,10 @@ namespace KalkulackaWPF.Views
         public static License License = new License();
         public static About About = new About();
         public static Controls Controls = new Controls();
+        public class Func
+        {
+            public static Func1 Func1 = new Func1();
+            public static Func2 Func2 = new Func2();
+        }
     }
 }

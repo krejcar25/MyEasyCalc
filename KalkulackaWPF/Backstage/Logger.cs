@@ -6,19 +6,20 @@ using System.Security;
 
 namespace KalkulackaWPF.Backstage
 {
-    class Logger
+    public class Logger
     {
         public bool consoleLogged { get; set; }
         public bool fileLogged { get; set; }
         public bool licenseDisplayed { get; set; } = false;
-        public Logger(int level, string attr, string value)
+
+        public void log(int level, string attr, string value)
         {
             if (config.Default.console)
             {
                 if (level == 0) //FATAL
                 {
                     Console.Write("[{0}][", string.Format("{0}, {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString()));
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("FATAL");
                     Console.ResetColor();
                     Console.WriteLine("][{0}] > {1}", attr, value);
@@ -82,7 +83,8 @@ namespace KalkulackaWPF.Backstage
                 fileLogged = false;
             }
         }
-        public Logger(bool license)
+
+        public void log(bool license)
         {
             if (license)
             {
@@ -122,34 +124,5 @@ namespace KalkulackaWPF.Backstage
                 }
             }
         }
-    }
-    public class ConsoleHelper
-    {
-        public static int Create()
-        {
-            if (AllocConsole())
-                return 0;
-            else
-                return Marshal.GetLastWin32Error();
-        }
-
-        public static int Destroy()
-        {
-            if (FreeConsole())
-                return 0;
-            else
-                return Marshal.GetLastWin32Error();
-        }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2118:ReviewSuppressUnmanagedCodeSecurityUsage"), SuppressUnmanagedCodeSecurity]
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
-
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2118:ReviewSuppressUnmanagedCodeSecurityUsage"), SuppressUnmanagedCodeSecurity]
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool FreeConsole();
     }
 }

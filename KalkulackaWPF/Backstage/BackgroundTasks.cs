@@ -14,7 +14,7 @@ namespace KalkulackaWPF.Backstage
         {
             directPad = directPadParam;
             indirectPad = directPadParam;
-            new Logger(2, "Code", string.Format("A CheckBlocksInitiate has appeared with current pad values {0} and {1}. Passing to CheckBlocks()",
+            Worker.Logger.log(2, "Code", string.Format("A CheckBlocksInitiate has appeared with current pad values {0} and {1}. Passing to CheckBlocks()",
                 directPadParam, indirectPadParam));
             CheckBlocks();
         }

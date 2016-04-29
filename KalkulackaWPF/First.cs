@@ -12,15 +12,15 @@ namespace KalkulackaWPF
     {
         public First()
         {
-            Logger init = new Logger(true);
+            Worker.Logger.log(true);
             View.Calc.isResult = false;
             View.Calc.lastResult = 0;
-            if (!init.consoleLogged)
+            if (!Vars.consoleOpen)
             {
-                new Logger(false);
+                Worker.Logger.log(false);
             }
-            new Logger(2, "Logging", "Logging code initialized and working");
-            new Logger(2, "System", "System started, app window should open wihin 3 seconds");
+            Worker.Logger.log(2, "Logging", "Logging code initialized and working");
+            Worker.Logger.log(2, "System", "System started, app window should open wihin 3 seconds");
             Vars.InitViewsList();
             Worker.main.Viewer.Content = View.Calc;
             Worker.main.Show();
