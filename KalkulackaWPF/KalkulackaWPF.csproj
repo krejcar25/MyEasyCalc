@@ -125,6 +125,7 @@
     <Compile Include="Backstage\Calculator.cs" />
     <Compile Include="Backstage\ConsoleHelper.cs" />
     <Compile Include="Backstage\Typer.cs" />
+    <Compile Include="config.cs" />
     <Compile Include="Object\Worker.cs" />
     <Compile Include="Object\Vars.cs" />
     <Compile Include="Views\About.xaml.cs">
@@ -240,6 +241,12 @@
     <None Include="Popups\old-calculator.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CHANGELOG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="README">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="Views\shows\license.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
