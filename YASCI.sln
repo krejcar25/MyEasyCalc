@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KalkulackaWPF", "KalkulackaWPF\KalkulackaWPF.csproj", "{C63375E5-B2AA-4629-9BDA-A286E1B5D7A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YASCI", "YASCI\YASCI.csproj", "{C63375E5-B2AA-4629-9BDA-A286E1B5D7A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

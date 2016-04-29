@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KalkulackaWPF"
         mc:Ignorable="d"
-        Title="Kalkulačka" Height="571" Width="392" KeyDown="Window_KeyDown">
+        Title="YASCI MyEasyCalc" Height="571" Width="392" KeyDown="Window_KeyDown">
     <Frame x:Name="Viewer" NavigationUIVisibility="Hidden"/>
 </Window>    

@@ -126,8 +126,8 @@
     <Compile Include="Backstage\ConsoleHelper.cs" />
     <Compile Include="Backstage\Typer.cs" />
     <Compile Include="config.cs" />
-    <Compile Include="Object\Worker.cs" />
-    <Compile Include="Object\Vars.cs" />
+    <Compile Include="Objects\Worker.cs" />
+    <Compile Include="Objects\Vars.cs" />
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
@@ -170,7 +170,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindow.xaml.typer.cs" />
     <Compile Include="Popups\ProgHelp.cs">
       <SubType>Form</SubType>
     </Compile>

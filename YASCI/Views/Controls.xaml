@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:KalkulackaWPF.Views"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Controls">
+      Title="Keybing Configuration">
 
     <Grid>
         

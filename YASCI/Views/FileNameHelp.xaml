@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:KalkulackaWPF.Views"
       mc:Ignorable="d" 
       d:DesignHeight="540" d:DesignWidth="384"
-      Title="FileNameHelp">
+      Title="Filename Help">
 
     <Grid>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="220,115,0,0" TextWrapping="Wrap" Text="Hello!" VerticalAlignment="Top"/>
