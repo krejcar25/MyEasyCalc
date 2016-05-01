@@ -1,11 +1,11 @@
-﻿using KalkulackaWPF.Views;
+﻿using YASCI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KalkulackaWPF.Objects
+namespace YASCI.Objects
 {
     class Vars
     {

@@ -8,7 +8,7 @@ using System.Security;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace KalkulackaWPF
+namespace YASCI
 {
     /// <summary>
     /// Interaction logic for App.xaml

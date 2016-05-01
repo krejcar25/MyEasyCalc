@@ -1,9 +1,9 @@
-﻿using KalkulackaWPF.Backstage;
-using KalkulackaWPF.Objects;
-using KalkulackaWPF.Views;
+﻿using YASCI.Backstage;
+using YASCI.Objects;
+using YASCI.Views;
 using System.Windows;
 
-namespace KalkulackaWPF
+namespace YASCI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

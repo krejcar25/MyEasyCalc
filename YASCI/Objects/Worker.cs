@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KalkulackaWPF.Backstage;
+using YASCI.Backstage;
 
-namespace KalkulackaWPF.Objects
+namespace YASCI.Objects
 {
     class Worker
     {

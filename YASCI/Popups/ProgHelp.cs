@@ -1,4 +1,4 @@
-﻿using KalkulackaWPF.Backstage;
+﻿using YASCI.Backstage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KalkulackaWPF
+namespace YASCI
 {
     partial class ProgHelp : Form
     {

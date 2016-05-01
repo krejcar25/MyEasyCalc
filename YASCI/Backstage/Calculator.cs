@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using KalkulackaWPF.Views;
-using KalkulackaWPF.Objects;
+using YASCI.Views;
+using YASCI.Objects;
 using LoreSoft.MathExpressions;
 
-namespace KalkulackaWPF.Backstage
+namespace YASCI.Backstage
 {
     public class Calculator
     {

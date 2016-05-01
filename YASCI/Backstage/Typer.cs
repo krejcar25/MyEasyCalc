@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using KalkulackaWPF.Views;
-using KalkulackaWPF.Objects;
+using YASCI.Views;
+using YASCI.Objects;
 
-namespace KalkulackaWPF.Backstage
+namespace YASCI.Backstage
 {
     public class Typer
     {

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Security;
-using KalkulackaWPF.Views;
-using KalkulackaWPF.Objects;
+using YASCI.Views;
+using YASCI.Objects;
 using System.Configuration;
-using KalkulackaWPF.Backstage;
+using YASCI.Backstage;
 
-namespace KalkulackaWPF
+namespace YASCI
 {
     class First
     {

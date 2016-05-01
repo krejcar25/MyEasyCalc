@@ -1,10 +1,10 @@
-﻿using KalkulackaWPF.Objects;
+﻿using YASCI.Objects;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace KalkulackaWPF.Backstage
+namespace YASCI.Backstage
 {
     public class Logger
     {

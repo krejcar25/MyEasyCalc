@@ -1,8 +1,8 @@
-﻿using KalkulackaWPF.Objects;
-using KalkulackaWPF.Views;
+﻿using YASCI.Objects;
+using YASCI.Views;
 using System;
 
-namespace KalkulackaWPF.Backstage
+namespace YASCI.Backstage
 {
     public class BackgroundTasks
     {

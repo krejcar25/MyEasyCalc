@@ -1,9 +1,9 @@
-﻿<Page x:Class="KalkulackaWPF.Views.Func1"
+﻿<Page x:Class="YASCI.Views.Func1"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:KalkulackaWPF.Views"
+      xmlns:local="clr-namespace:YASCI.Views"
       mc:Ignorable="d" 
       d:DesignHeight="171" d:DesignWidth="344"
       Title="Func1">

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KalkulackaWPF.Views
+namespace YASCI.Views
 {
     public class View
     {

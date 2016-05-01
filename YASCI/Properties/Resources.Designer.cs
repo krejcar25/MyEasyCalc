@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KalkulackaWPF.Properties {
+namespace YASCI.Properties {
     using System;
     
     

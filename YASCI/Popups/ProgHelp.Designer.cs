@@ -1,4 +1,4 @@
-﻿namespace KalkulackaWPF
+﻿namespace YASCI
 {
     partial class ProgHelp
     {
@@ -79,7 +79,7 @@
             // logoPictureBox
             // 
             this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logoPictureBox.Image = global::KalkulackaWPF.Properties.Resources.old_calculator;
+            this.logoPictureBox.Image = global::YASCI.Properties.Resources.old_calculator;
             this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
