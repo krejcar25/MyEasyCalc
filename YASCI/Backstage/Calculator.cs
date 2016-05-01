@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Mono.CSharp;
 using KalkulackaWPF.Views;
 using KalkulackaWPF.Objects;
+using LoreSoft.MathExpressions;
 
 namespace KalkulackaWPF.Backstage
 {
@@ -24,18 +24,19 @@ namespace KalkulackaWPF.Backstage
                 Worker.Logger.log(2, "Math", string.Format("Current math value before replacement: {0}", mathString));
                 FuncParser();
                 Worker.Logger.log(2, "Math", string.Format("Current math value after replacement: {0}", mathString));
-                Evaluator evaluator = new Evaluator(new CompilerContext(new CompilerSettings(), new ConsoleReportPrinter()));
+                //Evaluator evaluator = new Evaluator(new CompilerContext(new CompilerSettings(), new ConsoleReportPrinter()));
+                MathEvaluator eval = new MathEvaluator();
 
                 object result;
                 string success = "yes";
                 try
                 {
-                    result = evaluator.Evaluate(mathString);
+                    result = eval.Evaluate(mathString);
                 }
-                catch (ArgumentException e)
+                catch (ParseException e)
                 {
                     result = "Error";
-                    if (e.Message == "Syntax error on input: partial input" && mathString.ToCharArray()[mathString.ToCharArray().Length-1]!=')')
+                    if (e.Message == "Unbalanced parentheses." && mathString.ToCharArray()[mathString.ToCharArray().Length-1]!=')')
                     {
                         Worker.Logger.log(1, "Evaluate", string.Format("There was an error in the formula provided: {0}", e.Message));
                         Worker.Logger.log(2, "Evaluate", "Trying to add ) to string to fix error");
@@ -78,12 +79,31 @@ namespace KalkulackaWPF.Backstage
         }
         private void FuncParser()
         {
-            mathString = mathString
-                .Replace("sin", "System.Math.Sin").Replace("cos", "System.Math.Cos").Replace("tan", "System.Math.Tan")
-                .Replace("log", "System.Math.Log").Replace("log10", "System.Math.Log10").Replace("ln", "System.Math.Log")
-                .Replace("Ans", lastResult.ToString());
-            mathString = Regex.Replace(mathString, @"\be", "System.Math.E");
+            // invert , and .
+            Worker.Logger.log(2, "Math", "Current math value before comma and period inversion: {0}", mathString);
+            mathString = Regex.Replace(mathString, @"\,", "_comma_");
+            mathString = Regex.Replace(mathString, @"\.", ",");
+            mathString = Regex.Replace(mathString, @"_comma_", ".");
+            Worker.Logger.log(2, "Math", "Current math value after comma and period inversion: {0}", mathString);
+
+            // replace functions
+            mathString = Regex.Replace(mathString, @"log\((.+?). (.+?)[)]?", "(log($1)/log($2))");
+            mathString = Regex.Replace(mathString, @"log\((.+?)[)]?", "log10($1)");
+            mathString = Regex.Replace(mathString, @"ln\((.+?)[)]?", "log($1)");/*
+            //mathString = Regex.Replace(mathString, @"([sin, cos, tan]?\(.+?)[)]?", "$1)");
+            mathString = Regex.Replace(mathString, @"sin\((.+?)[)]?", "sin($1)");
+            mathString = Regex.Replace(mathString, @"cos\((.+?)[)]?", "cos($1)");
+            mathString = Regex.Replace(mathString, @"tan\((.+?)[)]?", "tan($1)");*/
             mathString = Regex.Replace(mathString, @"\bE", "*10^");
+            mathString = Regex.Replace(mathString, @"Ans", "answer");
+            mathString = Regex.Replace(mathString, @"crt\((.+?)[)]?", "$1^(1/3)");
+            
+
+            if (mathString.ToCharArray()[mathString.Length -1 ] == '=')
+            {
+                Worker.Logger.log(2, "Math", "Yup, there was an equal sign at the end, I shall remove it!");
+                mathString.Remove(mathString.Length - 1);
+            }
             mathString = mathString.Replace("=", "");
         }
         public string StepSolve()
@@ -106,13 +126,13 @@ namespace KalkulackaWPF.Backstage
                     toAdd = "^";
                     break;
                 case "root2":
-                    toAdd = "^(1/2)";
+                    toAdd = "sqrt(";
                     break;
                 case "root3":
-                    toAdd = "^(1/3)";
+                    toAdd = "crt(";
                     break;
                 case "rootx":
-                    toAdd = "^(1/";
+                    toAdd = "xrt(";
                     break;
                 case "sin":
                     toAdd = "sin(";
@@ -133,7 +153,7 @@ namespace KalkulackaWPF.Backstage
                     toAdd = "ln(";
                     break;
                 case "eP":
-                    toAdd = "e";
+                    toAdd = "e^";
                     break;
                 default:
                     toAdd = "";

@@ -12,6 +12,12 @@ namespace KalkulackaWPF.Backstage
         public bool fileLogged { get; set; }
         public bool licenseDisplayed { get; set; } = false;
 
+        public void log(int level, string attr, string value, params object[] args)
+        {
+            string newVal = string.Format(value, args);
+            log(level, attr, newVal);
+        }
+
         public void log(int level, string attr, string value)
         {
             if (config.Default.console)

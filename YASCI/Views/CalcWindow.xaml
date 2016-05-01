@@ -58,7 +58,7 @@
                 <Button x:Name="ac" Content="AC" Grid.Column="4" Grid.Row="0" Click="ac_Click" FontSize="18"/>
                 <Frame x:Name="funcPart" Grid.ColumnSpan="5" Grid.Row="4" Grid.RowSpan="3"/>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="95" VerticalAlignment="Top" Width="356">
+            <Grid Margin="0,0,8,6">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30*"/>
                     <RowDefinition Height="70*"/>
@@ -67,10 +67,10 @@
                     <ColumnDefinition Width="15*"/>
                     <ColumnDefinition Width="85*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock x:Name="directPad" Grid.Column="1" Margin="10" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Right" FontSize="33.333"/>
                 <TextBlock x:Name="indirectPad" Grid.Column="1" TextWrapping="Wrap" Margin="10,10,0,0"/>
                 <Button x:Name="historyOpen" Content="History" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="53" Height="66"/>
                 <Button x:Name="optionsOpen" Content="Options" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" Height="29" Click="optionsOpen_Click"/>
+                <TextBlock x:Name="directPad" Grid.Column="1" Margin="10" Grid.Row="1" TextWrapping="Wrap" FontSize="36" TextAlignment="Right"/>
             </Grid>
         </Grid>
     </Grid>
