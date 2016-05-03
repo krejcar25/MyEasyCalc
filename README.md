@@ -14,8 +14,8 @@
 >>Let me quickly show you how to install and use this program:
 
 ##Downloads
-- Recommended: [build 0.9.5.1](https://github.com/krejcar25/YASCI/releases/tag/0.9.5.1)
-- Latest: [build 0.9.5.1](https://github.com/krejcar25/YASCI/releases/tag/0.9.5.1)
+- Recommended: none yet :(
+- Latest: [build 0.9.6.1](https://github.com/krejcar25/YASCI/releases/tag/0.9.6.1)
 
 
 ##How-tos
