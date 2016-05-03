@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using YASCI.Views;
 using YASCI.Objects;
 using LoreSoft.MathExpressions;
+using System.Globalization;
 
 namespace YASCI.Backstage
 {
@@ -24,14 +25,12 @@ namespace YASCI.Backstage
                 Worker.Logger.log(2, "Math", string.Format("Current math value before replacement: {0}", mathString));
                 FuncParser();
                 Worker.Logger.log(2, "Math", string.Format("Current math value after replacement: {0}", mathString));
-                //Evaluator evaluator = new Evaluator(new CompilerContext(new CompilerSettings(), new ConsoleReportPrinter()));
-                MathEvaluator eval = new MathEvaluator();
 
                 object result;
                 string success = "yes";
                 try
                 {
-                    result = eval.Evaluate(mathString);
+                    result = Worker.MathEvaluator.Evaluate(mathString);
                 }
                 catch (ParseException e)
                 {
@@ -60,7 +59,8 @@ namespace YASCI.Backstage
 
                 if (success == "yes")
                 {
-                    View.Calc.directPad.Text = result.ToString();
+
+                    View.Calc.directPad.Text = double.Parse(result.ToString()).ToString("N", CultureInfo.InvariantCulture);
                     lastResult = double.Parse(result.ToString());
                     mathLoop = false;
                 }
@@ -89,11 +89,7 @@ namespace YASCI.Backstage
             // replace functions
             mathString = Regex.Replace(mathString, @"log\((.+?). (.+?)[)]?", "(log($1)/log($2))");
             mathString = Regex.Replace(mathString, @"log\((.+?)[)]?", "log10($1)");
-            mathString = Regex.Replace(mathString, @"ln\((.+?)[)]?", "log($1)");/*
-            //mathString = Regex.Replace(mathString, @"([sin, cos, tan]?\(.+?)[)]?", "$1)");
-            mathString = Regex.Replace(mathString, @"sin\((.+?)[)]?", "sin($1)");
-            mathString = Regex.Replace(mathString, @"cos\((.+?)[)]?", "cos($1)");
-            mathString = Regex.Replace(mathString, @"tan\((.+?)[)]?", "tan($1)");*/
+            mathString = Regex.Replace(mathString, @"ln\((.+?)[)]?", "log($1)");
             mathString = Regex.Replace(mathString, @"\bE", "*10^");
             mathString = Regex.Replace(mathString, @"Ans", "answer");
             mathString = Regex.Replace(mathString, @"crt\((.+?)[)]?", "$1^(1/3)");
@@ -101,10 +97,9 @@ namespace YASCI.Backstage
 
             if (mathString.ToCharArray()[mathString.Length -1 ] == '=')
             {
-                Worker.Logger.log(2, "Math", "Yup, there was an equal sign at the end, I shall remove it!");
-                mathString.Remove(mathString.Length - 1);
+                Worker.Logger.log(1, "Math", "Yup, there was an equal sign at the end, I shall remove it!");
+                mathString = mathString.Remove(mathString.Length - 1);
             }
-            mathString = mathString.Replace("=", "");
         }
         public string StepSolve()
         {

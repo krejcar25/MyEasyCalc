@@ -39,7 +39,7 @@ namespace YASCI.Backstage
         public void InitialiseLogDir()
         {
             string homePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            config.Default.loggingPath = config.Default.loggingPath.Replace("{homeDir}", homePath);
+            config.Default.loggingPath = config.Default.loggingPath.Replace("{homeDir}", config.Default.homeDir);
             config.Default.Save();
             Vars.LogPath = config.Default.loggingPath + config.Default.loggingFile.Replace("{date}", DateTime.Now.ToShortDateString()).Replace("{time}", DateTime.Now.ToLongTimeString().Replace(":", "."));
         }

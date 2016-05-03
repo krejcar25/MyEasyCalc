@@ -23,12 +23,6 @@ namespace YASCI
         {
             View.Calc.directPad.Text = "";
         }
-        public void SetPage(string id)
-        {
-            Worker.Logger.log(2, "Display", string.Format("Setting page to {0}", id));
-            Viewer.Content = Vars.viewsList[id];
-            Title = "YASCI MyEasyCalc - " + Vars.titleList[id].ToString();
-        }
 
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {

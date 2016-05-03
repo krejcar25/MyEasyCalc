@@ -14,11 +14,12 @@ namespace YASCI.Views
         public static FileNameHelp FileNameHelp = new FileNameHelp();
         public static License License = new License();
         public static About About = new About();
-        public static Controls Controls = new Controls();
+        public static Keybinds Controls = new Keybinds();
         public class Func
         {
             public static Func1 Func1 = new Func1();
             public static Func2 Func2 = new Func2();
         }
+        public static TextBoxCalc TextBoxCalc = new TextBoxCalc();
     }
 }

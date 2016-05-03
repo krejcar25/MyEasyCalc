@@ -108,7 +108,7 @@ namespace YASCI.Views
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            Worker.main.SetPage("Options");
+            Worker.PageManager.SetPage("back");
             config.Default.loggingPath = this.loggingPath.Text;
             config.Default.loggingFile = this.loggingFile.Text;
             config.Default.Save();
@@ -116,7 +116,7 @@ namespace YASCI.Views
 
         private void fileNameInfo_Click(object sender, RoutedEventArgs e)
         {
-            Worker.main.SetPage("FileNameInfo");
+            Worker.PageManager.SetPage("FileNameInfo");
         }
     }
 }

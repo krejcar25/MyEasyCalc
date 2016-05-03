@@ -7,7 +7,7 @@
     <ProjectGuid>{C63375E5-B2AA-4629-9BDA-A286E1B5D7A0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KalkulackaWPF</RootNamespace>
+    <RootNamespace>YASCI</RootNamespace>
     <AssemblyName>MyEasyCalc</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -123,8 +123,13 @@
     <Compile Include="Backstage\BackgroundTasks.cs" />
     <Compile Include="Backstage\Calculator.cs" />
     <Compile Include="Backstage\ConsoleHelper.cs" />
+    <Compile Include="Backstage\PageManager.cs" />
     <Compile Include="Backstage\Typer.cs" />
-    <Compile Include="config.cs" />
+    <Compile Include="config.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>config.settings</DependentUpon>
+    </Compile>
     <Compile Include="Objects\Worker.cs" />
     <Compile Include="Objects\Vars.cs" />
     <Compile Include="Views\About.xaml.cs">
@@ -142,12 +147,10 @@
     <Compile Include="Views\License.xaml.cs">
       <DependentUpon>License.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\View.cs" />
-    <Compile Include="config.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>config.settings</DependentUpon>
+    <Compile Include="Views\TextBoxCalc.xaml.cs">
+      <DependentUpon>TextBoxCalc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\View.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Views\FileNameHelp.xaml.cs">
       <DependentUpon>FileNameHelp.xaml</DependentUpon>
@@ -167,6 +170,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\TextBoxCalc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Popups\ProgHelp.cs">
@@ -251,6 +258,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

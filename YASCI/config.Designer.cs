@@ -61,7 +61,7 @@ namespace YASCI {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("{homeDir}\\AppData\\Roaming\\MyEasyCalc\\log\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{homeDir}log\\")]
         public string loggingPath {
             get {
                 return ((string)(this["loggingPath"]));
@@ -92,6 +92,18 @@ namespace YASCI {
             }
             set {
                 this["consoleOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Michal\\Appdata\\Roaming\\YASCI\\")]
+        public string homeDir {
+            get {
+                return ((string)(this["homeDir"]));
+            }
+            set {
+                this["homeDir"] = value;
             }
         }
     }

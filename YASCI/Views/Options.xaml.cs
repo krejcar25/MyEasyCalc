@@ -29,25 +29,34 @@ namespace YASCI.Views
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            Worker.main.SetPage("Calc");
+            Worker.PageManager.SetPage("back");
         }
         
         private void showEula_Click(object sender, RoutedEventArgs e)
         {
-            Worker.main.SetPage("License");
+            Worker.PageManager.SetPage("License");
             View.License.viewer.Navigate(new Uri(string.Format("file:///{0}/views/shows/license.html", Directory.GetCurrentDirectory())));
         }
 
         private void showAbout_Click(object sender, RoutedEventArgs e)
         {
-            Worker.main.SetPage("About");
+            Worker.PageManager.SetPage("About");
             View.License.viewer.Navigate(new Uri(string.Format("file:///{0}/views/shows/About.html", Directory.GetCurrentDirectory())));
         }
 
         private void logginOptionsOpen_Click(object sender, RoutedEventArgs e)
         {
-            Worker.main.SetPage("LoggingOptions");
+            Worker.PageManager.SetPage("LoggingOptions");
             View.LoggingOptions.Recolor();
+        }
+
+        private void pathSelect_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.FolderBrowserDialog browser = new System.Windows.Forms.FolderBrowserDialog();
+            browser.Description = "Please select folder for the log files to be save to...";
+            browser.SelectedPath = loggingPath.Text;
+            browser.ShowDialog();
+            loggingPath.Text = browser.SelectedPath;
         }
     }
 }

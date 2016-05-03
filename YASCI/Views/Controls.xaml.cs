@@ -18,9 +18,9 @@ namespace YASCI.Views
     /// <summary>
     /// Interaction logic for Controls.xaml
     /// </summary>
-    public partial class Controls : Page
+    public partial class Keybinds : Page
     {
-        public Controls()
+        public Keybinds()
         {
             InitializeComponent();
         }

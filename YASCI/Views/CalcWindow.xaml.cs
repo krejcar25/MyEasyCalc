@@ -216,12 +216,17 @@ namespace YASCI.Views
         }
         private void optionsOpen_Click(object sender, RoutedEventArgs e)
         {
-            Worker.main.SetPage("Options");
+            Worker.PageManager.SetPage("Options");
         }
         private void equal_Click(object sender, RoutedEventArgs e)
         {
             updateDisplay("moveUp", "equal");
             Worker.processor.Process();
+        }
+
+        private void textBoxInput_Click(object sender, RoutedEventArgs e)
+        {
+            Worker.main.Viewer.Content = Vars.viewsList["TextInput"];
         }
     }
 }

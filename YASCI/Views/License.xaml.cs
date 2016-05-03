@@ -28,7 +28,7 @@ namespace YASCI.Views
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            Worker.main.SetPage("Options");
+            Worker.PageManager.SetPage("back");
         }
     }
 }

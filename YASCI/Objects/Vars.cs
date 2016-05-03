@@ -13,6 +13,7 @@ namespace YASCI.Objects
         //public static object[] viewsList = new object[] { View.Calc, View.Options, View.LoggingOptions, View.FileNameHelp, View.License, View.About };
         public static Dictionary<string, object> viewsList = new Dictionary<string, object>();
         public static Dictionary<string, object> titleList = new Dictionary<string, object>();
+        public static Dictionary<object, string> titleListObj = new Dictionary<object, string>();
         public static bool consoleOpen = false;
         public static string[] numbersList = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
         public static void InitViewsList()
@@ -24,6 +25,7 @@ namespace YASCI.Objects
             viewsList["License"] = View.License;
             viewsList["LoggingOptions"] = View.LoggingOptions;
             viewsList["Options"] = View.Options;
+            viewsList["TextBoxCalc"] = View.TextBoxCalc;
 
             titleList["About"] = View.About.Title;
             titleList["FileNameHelp"] = View.FileNameHelp.Title;
@@ -32,6 +34,16 @@ namespace YASCI.Objects
             titleList["License"] = View.License.Title;
             titleList["LoggingOptions"] = View.LoggingOptions.Title;
             titleList["Options"] = View.Options.Title;
+            titleList["TextBoxCalc"] = View.TextBoxCalc.Title;
+
+            titleListObj[View.About] = "About";
+            titleListObj[View.FileNameHelp] = "FileNameHelp";
+            titleListObj[View.Calc] = "Calc";
+            titleListObj[View.Controls] = "Controls";
+            titleListObj[View.License] = "License";
+            titleListObj[View.LoggingOptions] = "LoggingOptions";
+            titleListObj[View.Options] = "Options";
+            titleListObj[View.TextBoxCalc] = "TextBoxCalc";
         }
     }
 }

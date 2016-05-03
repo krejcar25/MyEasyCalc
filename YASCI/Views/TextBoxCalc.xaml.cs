@@ -1,5 +1,4 @@
-﻿using YASCI.Objects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,18 +16,13 @@ using System.Windows.Shapes;
 namespace YASCI.Views
 {
     /// <summary>
-    /// Interaction logic for About.xaml
+    /// Interaction logic for TextBoxCalc.xaml
     /// </summary>
-    public partial class About : Page
+    public partial class TextBoxCalc : Page
     {
-        public About()
+        public TextBoxCalc()
         {
             InitializeComponent();
-        }
-
-        private void back_Click(object sender, RoutedEventArgs e)
-        {
-            Worker.PageManager.SetPage("back");
         }
     }
 }
